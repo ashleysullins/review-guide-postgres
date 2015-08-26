@@ -67,12 +67,18 @@ public class Restaurant {
       Restaurant newRestaurant = (Restaurant) otherRestaurant;
       return this.getName().equals(newRestaurant.getName()) &&
              this.getId() == newRestaurant.getId() &&
-             this.getCuisine_id() == newRestaurant.getCuisine_id();
+             this.getCuisine_id() == newRestaurant.getCuisine_id() &&
+             this.getAddress() == newRestaurant.getAddress() &&
+             this.getPhone() == newRestaurant.getPhone() &&
+             this.getWebsite() == newRestaurant.getWebsite() &&
+             this.getRating() == newRestaurant.getRating() &&
+             this.getPrice() == newRestaurant.getPrice() &&
+             this.getFamily_Friendly() == newRestaurant.getFamily_Friendly();
        }
       }
 
     public static List<Restaurant> all() {
-      String sql ="SELECT id, name, cuisine_id FROM restaurant";
+      String sql ="SELECT * FROM restaurant";
       try(Connection con = DB.sql2o.open()) {
         return con.createQuery(sql).executeAndFetch(Restaurant.class);
       }
@@ -80,10 +86,16 @@ public class Restaurant {
 
     public void save() {
       try(Connection con = DB.sql2o.open()) {
-        String sql = "INSERT INTO restaurant (name, cuisine_id) VALUES (:name, :cuisine_id)";
+        String sql = "INSERT INTO restaurant (name, cuisine_id, address, phone, website, rating, price, family_friendly) VALUES (:name, :cuisine_id, :address, :phone, :website, :rating, :price, :family_friendly)";
         this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
         .addParameter("cuisine_id", this.cuisine_id)
+        .addParameter("address", this.address)
+        .addParameter("phone", this.phone)
+        .addParameter("website", this.website)
+        .addParameter("rating", this.rating)
+        .addParameter("price", this.price)
+        .addParameter("family_friendly", this.family_friendly)
         .executeUpdate()
         .getKey();
       }

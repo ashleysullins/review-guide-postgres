@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RestaurantTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2015-08-26T21:35:27" hostname="epicodus-105.local" time="0.073">
+<testsuite name="RestaurantTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2015-08-26T23:30:41" hostname="epicodus-105.local" time="0.076">
   <properties/>
-  <testcase name="equals_returnsTrueIfNameAreTheSame" classname="RestaurantTest" time="0.005"/>
-  <testcase name="save_savesCuisine_idIntoDB_true" classname="RestaurantTest" time="0.019"/>
-  <testcase name="save_saveObjectIntoDatabase_true" classname="RestaurantTest" time="0.015"/>
-  <testcase name="all_emptyAtFirst" classname="RestaurantTest" time="0.008"/>
+  <testcase name="equals_returnsTrueIfNameAreTheSame" classname="RestaurantTest" time="0.006"/>
+  <testcase name="save_savesCuisine_idIntoDB_true" classname="RestaurantTest" time="0.02"/>
+  <testcase name="save_saveObjectIntoDatabase_true" classname="RestaurantTest" time="0.014"/>
+  <testcase name="all_emptyAtFirst" classname="RestaurantTest" time="0.009"/>
   <testcase name="find_findsRestaurantInDatabase_true" classname="RestaurantTest" time="0.013"/>
   <testcase name="save_assignsIdtoObject" classname="RestaurantTest" time="0.013"/>
   <system-out><![CDATA[]]></system-out>
