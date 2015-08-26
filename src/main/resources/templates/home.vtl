@@ -1,8 +1,22 @@
-<h1>Header Goes Here</h1>
-<form action='/results' method='get'>
-  <div class="form-group">
-    <input id="form_id" name="form_name" class="form-control" type="text">
-  </div>
+<h1>Visitor's Resturant Guide</h1>
 
-      <button type="submit" class="btn btn-info">Submit!</button>
+<h3>View All Restaurant</h3>
+foreach($restaurant in $restaurants)
+<p>$restaurant.getName()</p>
+<p>$cuisine.getName()</p>
+<p>$resturant.getAddress()</p>
+<p>$resturant.getPhone()</p>
+<p>$resturant.getWebsite()</p>
+<p>$resturant.getRating()</p>
+<p>$resturant.getPrice()</p>
+<p>$resturant.getFamily_Friendly()</p>
+#end
+
+<h3>View All Cuisines</h3>
+foreach($cuisine in $cuisines)
+<p>$cuisine.getName()</p>
+#end
+
+<h3><a href="/new">Add a new Restaurant</a><h3>
+
 </form>
