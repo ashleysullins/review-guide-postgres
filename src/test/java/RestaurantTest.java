@@ -41,4 +41,14 @@ public class RestaurantTest {
       Restaurant savedRestaurant = Restaurant.find(myRestaurant.getId());
       assertTrue(myRestaurant.equals(savedRestaurant));
     }
+
+    @Test
+    public void save_savesCuisine_idIntoDB_true() {
+      Cuisine myCuisine = new Cuisine("thai");
+      myCuisine.save();
+      Restaurant savedRestaurant = new Restaurant("Khao Man Gai", myCuisine.getId(), "100 Anywhere", "555-555-5555", "yelp.com", "5 stars", "$$", "Yes");
+      savedRestaurant.save();
+      Restaurant myRestaurant = Restaurant.find(savedRestaurant.getId());
+      assertEquals(savedRestaurant.getCuisine_id(), myCuisine.getId());
+    }
 }
