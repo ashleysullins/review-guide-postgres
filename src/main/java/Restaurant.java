@@ -5,6 +5,12 @@ public class Restaurant {
   private int id;
   private int cuisine_id;
   private String name;
+  private String address;
+  private String phone;
+  private String website;
+  private String rating;
+  private String price;
+  private String family_friendly;
 
   public int getId(){
     return id;
@@ -18,9 +24,39 @@ public class Restaurant {
     return name;
   }
 
-  public Restaurant(String name, int cuisine_id) {
+  public String getAddress(){
+    return address;
+  }
+
+  public String getPhone(){
+    return phone;
+  }
+
+  public String getWebsite(){
+    return website;
+  }
+
+  public String getRating(){
+    return rating;
+  }
+
+  public String getPrice(){
+    return price;
+  }
+
+  public String getFamily_Friendly(){
+    return family_friendly;
+  }
+
+  public Restaurant(String name, int cuisine_id, String address, String phone, String website, String rating, String price, String family_friendly) {
     this.name = name;
     this.cuisine_id = cuisine_id;
+    this.address = address;
+    this.phone = phone;
+    this.website = website;
+    this.rating = rating;
+    this.price = price;
+    this.family_friendly = family_friendly;
   }
 
   @Override
@@ -55,7 +91,7 @@ public class Restaurant {
 
     public static Restaurant find(int id) {
       try(Connection con = DB.sql2o.open()) {
-        String sql = "SELECT * FROM Restaurant WHERE id=:id";
+        String sql = "SELECT * FROM restaurant WHERE id=:id";
         Restaurant restaurant = con.createQuery(sql)
           .addParameter("id", id)
           .executeAndFetchFirst(Restaurant.class);

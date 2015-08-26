@@ -14,23 +14,31 @@ public class RestaurantTest {
 
   @Test
   public void equals_returnsTrueIfNameAreTheSame() {
-    Restaurant firstRestaurant = new Restaurant("Khao Man Gai", 1);
-    Restaurant secondRestaurant = new Restaurant("Khao Man Gai", 1);
+    Restaurant firstRestaurant = new Restaurant("Khao Man Gai", 1, "100 Anywhere", "555-555-5555", "yelp.com", "5 stars", "$$", "Yes");
+    Restaurant secondRestaurant = new Restaurant("Khao Man Gai", 1, "100 Anywhere", "555-555-5555", "yelp.com", "5 stars", "$$", "Yes");
     assertTrue(firstRestaurant.equals(secondRestaurant));
   }
 
   @Test
   public void save_saveObjectIntoDatabase_true() {
-    Restaurant myRestaurant = new Restaurant("Khoa Man Gai", 1);
+    Restaurant myRestaurant = new Restaurant("Khoa Man Gai", 1, "100 Anywhere", "555-555-5555", "yelp.com", "5 stars", "$$", "Yes");
     myRestaurant.save();
     assertTrue(Restaurant.all().get(0).equals(myRestaurant));
     }
 
     @Test
     public void save_assignsIdtoObject() {
-      Restaurant myRestaurant = new Restaurant("Khao Man Gai", 1);
+      Restaurant myRestaurant = new Restaurant("Khao Man Gai", 1, "100 Anywhere", "555-555-5555", "yelp.com", "5 stars", "$$", "Yes");
       myRestaurant.save();
       Restaurant savedRestaurant = Restaurant.all().get(0);
       assertEquals(myRestaurant.getId(), savedRestaurant.getId());
+    }
+
+    @Test
+    public void find_findsRestaurantInDatabase_true() {
+      Restaurant myRestaurant = new Restaurant("Khao Man Gai", 1, "100 Anywhere", "555-555-5555", "yelp.com", "5 stars", "$$", "Yes");
+      myRestaurant.save();
+      Restaurant savedRestaurant = Restaurant.find(myRestaurant.getId());
+      assertTrue(myRestaurant.equals(savedRestaurant));
     }
 }

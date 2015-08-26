@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CuisineTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2015-08-26T20:55:44" hostname="epicodus-105.local" time="0.154">
+<testsuite name="CuisineTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2015-08-26T21:13:44" hostname="epicodus-105.local" time="0.137">
   <properties/>
-  <testcase name="all_emptyAtFirst" classname="CuisineTest" time="0.115"/>
-  <testcase name="equals_returnTrueIfNamesAretheSame" classname="CuisineTest" time="0.006"/>
-  <testcase name="find_findCuisineInDatabase_true" classname="CuisineTest" time="0.017"/>
+  <testcase name="all_emptyAtFirst" classname="CuisineTest" time="0.101"/>
+  <testcase name="equals_returnTrueIfNamesAretheSame" classname="CuisineTest" time="0.005"/>
+  <testcase name="find_findCuisineInDatabase_true" classname="CuisineTest" time="0.016"/>
   <testcase name="save_savesIntoDatabase_true" classname="CuisineTest" time="0.014"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
