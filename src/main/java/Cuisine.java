@@ -18,7 +18,7 @@ public class Cuisine {
   }
 
   public static List<Cuisine> all() {
-    String sql = "SELECT id, name FROM Cuisine";
+    String sql = "SELECT id, name FROM cuisine";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Cuisine.class);
     }
@@ -36,10 +36,21 @@ public class Cuisine {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO Cuisine (name) VALUES (:name)";
-      con.createQuery(sql)
+      String sql = "INSERT INTO cuisine (name) VALUES (:name)";
+      this.id = (int) con.createQuery(sql, true)
       .addParameter("name", name)
-      .executeUpdate();
+      .executeUpdate()
+      .getKey();
+    }
+  }
+
+  public static Cuisine find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM cuisine WHERE id=:id";
+      Cuisine Cuisine = con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(Cuisine.class);
+     return Cuisine;
     }
   }
 }

@@ -19,9 +19,17 @@ public class CuisineTest {
   }
 
   @Test
-  public void save_returnsTrueIfNamesAreTheSame()  {
+  public void save_savesIntoDatabase_true()  {
     Cuisine myCuisine = new Cuisine("Italian");
     myCuisine.save();
     assertTrue(Cuisine.all().get(0).equals(myCuisine));
   }
+
+    @Test
+    public void find_findCuisineInDatabase_true() {
+      Cuisine myCuisine = new Cuisine("noodles");
+      myCuisine.save();
+      Cuisine savedCuisine = Cuisine.find(myCuisine.getId());
+      assertTrue(myCuisine.equals(savedCuisine));
+    }
 }

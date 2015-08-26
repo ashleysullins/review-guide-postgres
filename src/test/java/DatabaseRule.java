@@ -9,7 +9,7 @@ public class DatabaseRule extends ExternalResource {
 
   protected void after() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "DELETE FROM restaurant *;";
+      String sql = "DELETE FROM Cuisine *;";
       con.createQuery(sql).executeUpdate();
     }
   }
