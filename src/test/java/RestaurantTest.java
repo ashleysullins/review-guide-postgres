@@ -19,4 +19,10 @@ public class RestaurantTest {
     assertTrue(firstRestaurant.equals(secondRestaurant));
   }
 
+  @Test
+  public void save_saveObjectIntoDatabase_true() {
+    Restaurant myRestaurant = new Restaurant("Khoa Man Gai", 1);
+    myRestaurant.save();
+    assertTrue(Restaurant.all().get(0).equals(myRestaurant));
+    }
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RestaurantTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2015-08-26T19:12:59" hostname="epicodus-105.local" time="0.013">
+<testsuite name="RestaurantTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-08-26T20:46:40" hostname="epicodus-105.local" time="0.028">
   <properties/>
-  <testcase name="equals_returnsTrueIfNameAreTheSame" classname="RestaurantTest" time="0.004"/>
+  <testcase name="equals_returnsTrueIfNameAreTheSame" classname="RestaurantTest" time="0.005"/>
+  <testcase name="save_saveObjectIntoDatabase_true" classname="RestaurantTest" time="0.014"/>
   <testcase name="all_emptyAtFirst" classname="RestaurantTest" time="0.009"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
