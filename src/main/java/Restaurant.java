@@ -41,4 +41,15 @@ public class Restaurant {
         return con.createQuery(sql).executeAndFetch(Restaurant.class);
       }
     }
+
+    public void save() {
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "INSERT INTO restaurant (name, cuisine_id) VALUES (:name, :cuisine_id)";
+        this.id = (int) con.createQuery(sql, true)
+        .addParameter("name", this.name)
+        .addParameter("cuisine_id", this.cuisine_id)
+        .executeUpdate()
+        .getKey();
+      }
+    }
 }

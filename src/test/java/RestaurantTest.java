@@ -12,4 +12,11 @@ public class RestaurantTest {
    assertEquals(Restaurant.all().size(), 0);
   }
 
+  @Test
+  public void equals_returnsTrueIfNameAreTheSame() {
+    Restaurant firstRestaurant = new Restaurant("Khao Man Gai", 1);
+    Restaurant secondRestaurant = new Restaurant("Khao Man Gai", 1);
+    assertTrue(firstRestaurant.equals(secondRestaurant));
+  }
+
 }
