@@ -68,12 +68,12 @@ public class Restaurant {
       return this.getName().equals(newRestaurant.getName()) &&
              this.getId() == newRestaurant.getId() &&
              this.getCuisine_id() == newRestaurant.getCuisine_id() &&
-             this.getAddress() == newRestaurant.getAddress() &&
-             this.getPhone() == newRestaurant.getPhone() &&
-             this.getWebsite() == newRestaurant.getWebsite() &&
-             this.getRating() == newRestaurant.getRating() &&
-             this.getPrice() == newRestaurant.getPrice() &&
-             this.getFamily_Friendly() == newRestaurant.getFamily_Friendly();
+             this.getAddress().equals(newRestaurant.getAddress()) &&
+             this.getPhone().equals(newRestaurant.getPhone()) &&
+             this.getWebsite().equals(newRestaurant.getWebsite()) &&
+             this.getRating().equals(newRestaurant.getRating()) &&
+             this.getPrice().equals(newRestaurant.getPrice()) &&
+             this.getFamily_Friendly().equals(newRestaurant.getFamily_Friendly());
        }
       }
 
@@ -110,4 +110,30 @@ public class Restaurant {
         return restaurant;
       }
     }
+
+  public void update(String name, String address, String phone, String website, String rating, String price, String family_friendly) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE * SET * = :* WHERE id=:id";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .addParameter("name", this.name)
+        .addParameter("cuisine_id", this.cuisine_id)
+        .addParameter("address", this.address)
+        .addParameter("phone", this.phone)
+        .addParameter("website", this.website)
+        .addParameter("rating", this.rating)
+        .addParameter("price", this.price)
+        .addParameter("family_friendly", this.family_friendly)
+        .executeUpdate();
+    }
+  }
+
+  public void delete() {
+    try(Connection con = DB.sql2o.open()){
+      String sql = "DELETE FROM restaurant WHERE id = :id;";
+      con.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
 }
