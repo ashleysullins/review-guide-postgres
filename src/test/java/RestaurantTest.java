@@ -52,14 +52,13 @@ public class RestaurantTest {
       assertEquals(savedRestaurant.getCuisine_id(), myCuisine.getId());
     }
 
-    // @Test
-    // public void update_updateRestaurantInfo_true() {
-    //   Restaurant savedRestaurant = new Restaurant("Khao Man Gai", 1, "100 Anywhere", "555-555-5555", "yelp.com", "5 stars", "$$", "Yes");
-    //   savedRestaurant.save();
-    //   Restaurant updateRestaurant = Restaurant.update("McDonalds", "200", "11111111", "blah.com", "4 stars", "$$$", "No");
-    //   updateRestaurant.save();
-    //   assertEquals(savedRestaurant.getId(), updateRestaurant);
-    // }
+    @Test
+    public void update_updateRestaurantInfo() {
+      Restaurant savedRestaurant = new Restaurant("Khao Man Gai", 1, "100 Anywhere", "555-555-5555", "yelp.com", "5 stars", "$$", "Yes");
+      savedRestaurant.save();
+      savedRestaurant.update("McDonalds", "200", "11111111", "blah.com", "4 stars", "$$$", "No");
+      assertTrue(Restaurant.all().get(0).equals(savedRestaurant));
+    }
 
     @Test
     public void delete_deleteRestaurantFromDatabase() {

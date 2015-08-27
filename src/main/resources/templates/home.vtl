@@ -1,15 +1,52 @@
 <h1>Visitor's Resturant Guide</h1>
 
 <h3>View All Restaurant</h3>
+
+<table class="table table-striped">
+  <tr>
+    <td>Name</td>
+    <td>
+      Address
+    </td>
+    <td>
+      Phone
+    </td>
+    <td>
+      Type
+    </td>
+    <td>
+      Rating
+    </td>
+    <td>
+      Price
+    </td>
+    <td>
+      Delete
+    </td>
+  </tr>
 #foreach($restaurant in $restaurants)
-<p>$restaurant.getName()</p>
-<p>$restaurant.getAddress()</p>
-<p>$restaurant.getPhone()</p>
-<p>$restaurant.getWebsite()</p>
-<p>$restaurant.getRating()</p>
-<p>$restaurant.getPrice()</p>
-<p>$restaurant.getFamily_Friendly()</p>
+<tr><td>$restaurant.getName()</td>
+<td>$restaurant.getAddress()</td>
+<td>$restaurant.getPhone()</td>
+<td>$restaurant.getWebsite()</td>
+<td>$restaurant.getRating()</td>
+<td>$restaurant.getPrice()</td>
+<td>$restaurant.getFamily_Friendly()</td>
+
+<td><form action="/restaurant/$restaurant.getId()/delete" method="post">
+    <button type="submit" class="btn btn-primary">
+    <i class="glyphicon glyphicon-trash"></i> Delete</span>
+</form></td>
+</tr>
+
+<td><form action="/restaurant/$restaurant.getId()/update" method="get">
+    <button type="submit" class="btn btn-primary">
+    <i class="glyphicon glyphicon-scissors"></i> Update</span>
+</form></td>
+</tr>
+
 #end
+</table>
 
 <h3>View All Cuisines</h3>
 #foreach($cuisine in $cuisines)

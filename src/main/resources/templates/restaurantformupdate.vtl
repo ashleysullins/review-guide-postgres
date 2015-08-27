@@ -1,7 +1,6 @@
-<h1>Add a restaurant to visit!</h1>
-<form action='/restaurant_form' method="post">
-<input type="hidden" name=":id" value="$restaurant.getId">
-
+<h1>update a restaurant to visit!</h1>
+<form action='/restaurant/$restaurant.getId()/restaurant_update' method="post">
+  <input id=":id" name=":id" type="hidden" value="$restaurant.getId()">
   <div class="form-group">
 
     <label for="name">Restaurant name</label>
@@ -79,7 +78,7 @@
 
 
   </div>
-  <button type="submit" class="btn">Add your restaurant!</button>
+  <button type="submit" class="btn">Update your restaurant!</button>
 </form>
 
 <h3><a href="/">Go view restaurants</a><h3>

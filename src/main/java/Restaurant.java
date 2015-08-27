@@ -113,11 +113,10 @@ public class Restaurant {
 
   public void update(String name, String address, String phone, String website, String rating, String price, String family_friendly) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE * SET * = :* WHERE id=:id";
+      String sql = "UPDATE restaurant SET name = :name, address = :address, phone = :phone, website = :website, rating = :rating, price = :price, family_friendly = :family_friendly WHERE id=:id";
       con.createQuery(sql)
         .addParameter("id", id)
         .addParameter("name", this.name)
-        .addParameter("cuisine_id", this.cuisine_id)
         .addParameter("address", this.address)
         .addParameter("phone", this.phone)
         .addParameter("website", this.website)
