@@ -128,6 +128,15 @@ public class Restaurant {
     }
   }
 
+  public String getCuisineName() {
+    try(Connection con = DB.sql2o.open()){
+      String sql = "SElECT name FROM cuisine WHERE id = :id;";
+      return con.createQuery(sql)
+      .addParameter("id", cuisine_id)
+      .executeAndFetchFirst(String.class);
+    }
+  }
+
   public void delete() {
     try(Connection con = DB.sql2o.open()){
       String sql = "DELETE FROM restaurant WHERE id = :id;";

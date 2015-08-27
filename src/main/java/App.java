@@ -11,7 +11,8 @@ public class App {
 
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String,Object>();
-      model.put("cuisine", Cuisine.all());
+
+      model.put("cuisines", Cuisine.all());
       model.put("template", "templates/home.vtl");
       model.put("restaurants", Restaurant.all());
       return new ModelAndView(model, layout);
