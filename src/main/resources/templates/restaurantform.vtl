@@ -7,7 +7,15 @@
     <label for="name">Restaurant name</label>
     <input id="rName" name="rName" class="form-control" type="text">
 
-  #* add cuisine form here  *#
+    <label for="cuisine_id">Type of cuisine</label>
+        <select id="cuisine_id" name="cuisine_id" type="text">
+         #foreach($cuisine in $cuisine)
+          <option value="$cuisine.getId()">$cuisine.getName()</option>
+          #end
+        </select>
+
+        <br>
+
 
     <label for="address">Restaurant address</label>
     <input id="rAddress" name="rAddress" class="form-control" type="text">
