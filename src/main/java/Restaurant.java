@@ -113,16 +113,17 @@ public class Restaurant {
 
   public void update(String name, String address, String phone, String website, String rating, String price, String family_friendly) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE restaurant SET name = :name, address = :address, phone = :phone, website = :website, rating = :rating, price = :price, family_friendly = :family_friendly WHERE id=:id";
+      String sql = "UPDATE restaurant SET (name, address, phone, website, rating, price, family_friendly) = (:name, :address, :phone, :website, :rating, :price, :family_friendly) WHERE id=:id";
+        //String sql = "UPDATE restaurant SET name = :name WHERE id = :id";
       con.createQuery(sql)
         .addParameter("id", id)
-        .addParameter("name", this.name)
-        .addParameter("address", this.address)
-        .addParameter("phone", this.phone)
-        .addParameter("website", this.website)
-        .addParameter("rating", this.rating)
-        .addParameter("price", this.price)
-        .addParameter("family_friendly", this.family_friendly)
+        .addParameter("name", name)
+         .addParameter("address", address)
+         .addParameter("phone", phone)
+         .addParameter("website", website)
+         .addParameter("rating", rating)
+         .addParameter("price", price)
+         .addParameter("family_friendly", family_friendly)
         .executeUpdate();
     }
   }

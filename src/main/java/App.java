@@ -49,20 +49,20 @@ public class App {
     HashMap<String, Object> model = new HashMap<String, Object>();
     Restaurant restaurant = Restaurant.find(Integer.parseInt(request.params(":id")));
     restaurant.delete();
+    model.put("restaurants", Restaurant.all());
     model.put("template", "templates/home.vtl");
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
 
   get("/restaurant/:id/update", (request, response) -> {
     HashMap<String, Object> model = new HashMap<String, Object>();
-    Restaurant restaurant = Restaurant.find(Integer.parseInt(request.params(":id")));
+    model.put("restaurant", Restaurant.find(Integer.parseInt(request.params(":id"))));
     model.put("template", "templates/restaurantformupdate.vtl");
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
 
-  post("/restaurant/:id/restaurant_update", (request, response) -> {
+  post("/restaurant_update/:id", (request, response) -> {
     HashMap<String, Object> model = new HashMap<String, Object>();
-    model.put("template", "templates/home.vtl");
     Restaurant restaurant = Restaurant.find(Integer.parseInt(request.params(":id")));
     String name = request.queryParams("rName");
     String address = request.queryParams("rAddress");
@@ -72,6 +72,7 @@ public class App {
     String price = request.queryParams("rPrice");
     String family_friendly = request.queryParams("rFamily");
     restaurant.update(name, address, phone, website, rating, price, family_friendly);
+    model.put("template", "templates/home.vtl");
     model.put("restaurants", Restaurant.all());
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
